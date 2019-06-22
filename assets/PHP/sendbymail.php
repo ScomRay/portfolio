@@ -15,7 +15,7 @@ echo "<b>Ocurrió un error y el formulario no ha sido enviado. </b><br />";
 echo "Por favor, vuelva atrás y verifique la información ingresada<br />";
 die();
 }
-
+$email_from .= "Portfolio";
 $email_message = "Detalles del formulario de contacto:\n\n";
 $email_message .= "Nombre: " . $_POST['name'] . "\n";
 $email_message .= "Asunto: " . $_POST['subject'] . "\n";
@@ -30,5 +30,7 @@ $headers = 'From: '.$email_from."\r\n".
 @mail($email_to, $email_subject, $email_message, $headers);
 
 echo "¡El formulario se ha enviado con éxito!";
+}else{
+    echo "Problemas al enviar";
 }
 ?>
